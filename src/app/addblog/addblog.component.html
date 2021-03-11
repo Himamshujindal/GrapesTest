@@ -1,0 +1,32 @@
+<div class="container">
+	<div class="row">
+    <div class="col-md-4">
+		<div class="form_main">
+                <h4 class="heading"><strong>Add </strong> Blog <span></span></h4>
+                <div class="form">
+                    <form #bloginfoForm="ngForm" (ngSubmit)="onClickSubmit(bloginfoForm.value)">
+                        <input type="text" placeholder="Please input your Blog Title" required class="txt"
+                            [(ngModel)]="blogTitle" name="blogTitle"
+                            #blogTitlePickedName="ngModel">
+                        <div *ngIf="!blogTitlePickedName.valid && blogTitlePickedName.touched">
+                            Title is required!
+                        </div>
+                        
+                        <textarea placeholder="Your Blog" type="text" required class="txt_3" 
+                        [(ngModel)]="blogDetails" name="blogDetails"
+                        #blogDetailsPickedName="ngModel"></textarea>
+                        <div *ngIf="!blogDetailsPickedName.valid && blogDetailsPickedName.touched">
+                            Detail is required!
+                        </div>
+
+                        <input type="submit" class="txt2" [disabled]="!bloginfoForm.form.valid">
+
+                        <div class="txt2">
+                            <a routerLink = "../blogDetails" class="btn btn-warning">Cancel</a>
+                        </div>
+                    </form>
+            </div>
+            </div>
+        </div>
+	</div>
+</div>

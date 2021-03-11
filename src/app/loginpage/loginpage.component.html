@@ -1,0 +1,21 @@
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">  
+      <div class="fadeIn first">
+        <img src="assets/img/Grape.png" id="icon" alt="User Icon" />
+      </div>
+      <form #loginForm="ngForm" (ngSubmit)="onClickSubmit(loginForm.value)">
+        <input id="login" type="text" placeholder="Login" required class="fadeIn second"
+            name="blogUsername" ngModel>
+        
+        <input id="password" type="text" placeholder="password" required class="fadeIn third"
+        name="blogPassword" ngModel>        
+       
+        <input type="submit" class="fadeIn fourth" [disabled]="!loginForm.form.valid">
+        <div id="formFooter" *ngIf="IsValid">
+          <a class="underlineHover">Incorrect Username or password</a>
+        </div>
+      </form>
+  
+    </div>
+  </div>
